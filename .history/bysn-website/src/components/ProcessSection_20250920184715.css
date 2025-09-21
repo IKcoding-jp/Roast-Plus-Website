@@ -1,0 +1,242 @@
+/* 製造工程セクションのスタイル */
+.process-section {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--warm-white) 100%);
+  padding: 80px 0;
+}
+
+.process-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--warm-white);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(139, 69, 19, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.process-step:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+  border-left-color: var(--gold);
+}
+
+.process-step.active {
+  transform: translateX(15px);
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.25);
+  border-left-color: var(--primary-brown);
+  background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.process-step.active .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.step-title {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin: 0;
+}
+
+.process-details {
+  display: flex;
+  align-items: center;
+}
+
+.process-detail-card {
+  background: var(--warm-white);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-brown), var(--gold), var(--primary-brown));
+}
+
+.detail-header {
+  margin-bottom: 30px;
+}
+
+.detail-step {
+  display: inline-block;
+  background: var(--primary-brown);
+  color: var(--cream);
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.detail-title {
+  font-size: 2rem;
+  color: var(--primary-brown);
+  margin: 0;
+  font-weight: bold;
+}
+
+.detail-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin: 30px 0;
+  opacity: 0.8;
+}
+
+.detail-description {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.detail-more {
+  background: rgba(139, 69, 19, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--gold);
+}
+
+.detail-more p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.quality-message {
+  margin-top: 60px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
+  border: 2px solid var(--gold);
+  position: relative;
+}
+
+.quality-message::before {
+  content: '✨';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+
+.quality-title {
+  color: var(--primary-brown);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.quality-text {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .process-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .process-steps {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    gap: 15px;
+  }
+
+  .process-step {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  .process-step:hover {
+    transform: translateY(-5px);
+  }
+
+  .process-step.active {
+    transform: translateY(-10px);
+  }
+
+  .process-detail-card {
+    padding: 30px 20px;
+  }
+
+  .detail-title {
+    font-size: 1.5rem;
+  }
+
+  .detail-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-section {
+    padding: 60px 0;
+  }
+
+  .process-step {
+    min-width: 180px;
+    padding: 15px;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .process-detail-card {
+    padding: 25px 15px;
+  }
+
+  .detail-icon {
+    font-size: 3rem;
+    margin: 20px 0;
+  }
+}
